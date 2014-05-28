@@ -1,4 +1,5 @@
 Projetruby::Application.routes.draw do
+  get "character/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :anecdotes, only: [:create, :destroy]
