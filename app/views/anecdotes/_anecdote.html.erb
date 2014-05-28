@@ -1,0 +1,8 @@
+<li>
+  <h3>Theme : <%= anecdote.theme %></h3>
+  <span class="content"><%= anecdote.subject %></span>
+  <span class="content"><%= anecdote.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(anecdote.created_at) %> ago.
+  </span>
+</li>

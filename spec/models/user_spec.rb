@@ -14,6 +14,8 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:admin) }
+  it { should respond_to(:anecdotes) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
@@ -106,5 +108,15 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  describe "anecdotes associations" do
+
+    before { @user.save }
+    let!(:older_anecdote) do
+      FactoryGirl.create(:anecdote, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_anecdote) do
+      FactoryGirl.create(:anecdote, user: @user, created_at: 1.hour.ago)
+    end
   end
 end

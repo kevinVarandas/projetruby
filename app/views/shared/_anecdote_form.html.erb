@@ -1,0 +1,13 @@
+<%= form_for(@anecdote) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :theme, placeholder: "Your theme..." %>
+  </div>
+  <div class="field">
+    <%= f.text_field :subject, placeholder: "Your subject..." %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new anecdote, please..." %>
+  </div>
+  <%= f.submit "Poster l'anecdote", class: "btn btn-large btn-primary" %>
+<% end %>
